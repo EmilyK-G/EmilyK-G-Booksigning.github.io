@@ -24,8 +24,10 @@ function MyBook() {
               }
           })
 
+          const data = await response.data;
+
           if (response.ok) {
-              myMesDispatch({type: 'SET_MESSAGES', payload: response.data})
+              myMesDispatch({type: 'SET_MESSAGES', payload: data})
           }
       }
 

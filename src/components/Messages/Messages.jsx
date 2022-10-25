@@ -29,9 +29,11 @@ function Messages() {
                 'Authorization': `Bearer ${user.token}`
             }
         })
+
+        const data = await response.data;
     
         if (response.ok) {
-                response.data.forEach((mes)=>{
+                data.forEach((mes)=>{
                 mes.recipient_id === signing._id && thisPal.push(mes)
             })
         }

@@ -32,9 +32,11 @@ function Dashboard() {
               'Authorization': `Bearer ${user.token}`
           }
       })
+
+      const data = await response.data;
   
       if (response.ok) {      
-        response.data.forEach(mes=>{
+          data.forEach(mes=>{
           ids.push(mes.recipient_id)
         })
       }

@@ -31,8 +31,10 @@ function PrevMessages({mes}) {
             }
         })
 
+        const data = await response.data;
+
         if (response.ok) {
-            dispatch({type: 'DELETE_SIGNATURE', payload: response.data})
+            dispatch({type: 'DELETE_SIGNATURE', payload: data})
             setShow(false)
         }
     }

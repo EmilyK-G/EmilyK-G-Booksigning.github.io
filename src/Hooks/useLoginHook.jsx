@@ -19,15 +19,17 @@ export const useLogin = ()=>{
             body: JSON.stringify({email, pin})
         })
 
+        const data = await response.data;
+
         if(!response.ok){
             setIsLoading(false)
-            setError(response.data.error)
+            setError(data.error)
         }
 
         if(response.ok){
-            localStorage.setItem('user', JSON.stringify(response.data))
+            localStorage.setItem('user', JSON.stringify(data))
 
-            dispatch({type: 'LOGIN', payload: response.data})
+            dispatch({type: 'LOGIN', payload: data})
 
             setIsLoading(false)
         }
