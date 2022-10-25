@@ -46,7 +46,6 @@ export const UserContextProvider = ({children}) => {
             setUsersArr(data)
         }
         console.log('here is your debug code...'+ JSON.stringify(response))
-        console.log('here is your json debug code...'+ response.json())
         console.log('here is your data string debug code...'+ JSON.stringify(response.data))
     }
 
