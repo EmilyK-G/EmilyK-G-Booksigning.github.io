@@ -33,7 +33,7 @@ function Dashboard() {
           }
       })
 
-      const data = await response.data;
+      const data = JSON.stringify(response.data);
   
       if (response.ok) {      
           data.forEach(mes=>{

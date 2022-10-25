@@ -28,7 +28,7 @@ function UpdateSignatureModal(props) {
             headers: {'Content-Type': 'application/json'}
         })
 
-        const data = await response.data;
+        const data = JSON.stringify(response.data);
 
         if (response.ok) {
             dispatch({type: 'UPDATE', payload: {...user, signature: newSignature}});

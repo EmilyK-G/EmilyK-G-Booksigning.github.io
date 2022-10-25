@@ -24,7 +24,7 @@ function MyBook() {
               }
           })
 
-          const data = await response.data;
+          const data = JSON.stringify(response.data);
 
           if (response.ok) {
               myMesDispatch({type: 'SET_MESSAGES', payload: data})

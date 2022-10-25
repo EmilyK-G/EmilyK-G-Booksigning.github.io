@@ -40,13 +40,11 @@ export const UserContextProvider = ({children}) => {
     const fetchUsers = async() => {
         const response = await axios.get('https://booksigning.onrender.com/api/user')
 
-        const data = await response.data;
+        const data = JSON.stringify(response.data);
 
         if (response.ok) {
             setUsersArr(data)
         }
-        console.log('here is your debug code...'+ JSON.stringify(response))
-        console.log('here is your data string debug code...'+ JSON.stringify(response.data))
     }
 
     fetchUsers()

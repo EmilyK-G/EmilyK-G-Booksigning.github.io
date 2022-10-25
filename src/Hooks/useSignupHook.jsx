@@ -18,7 +18,7 @@ export const useSignup = ()=> {
             body: JSON.stringify({name, last_name, email, pin, class_of, img, signature})
         })
 
-        const data = await response.data;
+        const data = JSON.stringify(response.data);
 
         if (!response.ok){
             setIsLoading(false)

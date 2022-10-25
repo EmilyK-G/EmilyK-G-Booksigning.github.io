@@ -41,7 +41,7 @@ function MessageForm() {
         }
       })
 
-      const data = await response.data;
+      const data = JSON.stringify(response.data);
   
       if(!response.ok){
         setError(data.error)
