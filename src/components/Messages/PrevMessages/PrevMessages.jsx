@@ -7,6 +7,8 @@ import Overlay from 'react-bootstrap/Overlay';
 import './PrevMessages.css';
 import { useState, useRef } from "react";
 import Tooltip from 'react-bootstrap/Tooltip';
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 
 function PrevMessages({mes}) {
@@ -22,7 +24,7 @@ function PrevMessages({mes}) {
             return
         }
 
-        const response = await fetch('/api/signatures/sent/' + mes._id, {
+        const response = await axios.delete('https://booksigning.onrender.com/api/signatures/sent/' + mes._id, {
             method:'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`

@@ -39,6 +39,7 @@ div.d-flex > ul.users_list > li.users_list_item {
 
 @media (min-width: 768px) {
   .md_users_container{
+    min-width: 768px;
     max-width: 768px;
   }
   div.d-flex > ul.users_list > li.users_list_item {

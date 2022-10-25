@@ -8,6 +8,8 @@ import { motion } from 'framer-motion';
 import './MyBook.css';
 import { MdDone } from 'react-icons/md';
 import { IconContext } from "react-icons";
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function MyBook() {
     const { user } = useUserContext();
@@ -16,7 +18,7 @@ function MyBook() {
 
     useEffect(()=>{
       const fetchSignatures = async() => {
-          const response = await fetch('/api/signatures', {
+          const response = await axios.get('https://booksigning.onrender.com/api/signatures', {
               headers: {
                   'Authorization': `Bearer ${user.token}`
               }

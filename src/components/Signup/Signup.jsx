@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Alert } from 'react-bootstrap';
 import { useSignup } from '../../Hooks/useSignupHook';
 import Modal from 'react-bootstrap/Modal';
-import './Signup.css'
-import { useEffect } from 'react';
+import './Signup.css';
 
 function Signup({showForm, closeForm, setModalInfo}) {
     const [email, setEmail] = useState('');

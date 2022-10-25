@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { FcCheckmark } from 'react-icons/fc';
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 
 function UpdateSignatureModal(props) {
@@ -20,7 +22,7 @@ function UpdateSignatureModal(props) {
             return
         }
 
-        const response = await fetch('/api/user/update/' + user._id, {
+        const response = await axios.patch('https://booksigning.onrender.com/api/user/update/' + user._id, {
             method:'PATCH',
             body: JSON.stringify({signature: newSignature}),
             headers: {'Content-Type': 'application/json'}

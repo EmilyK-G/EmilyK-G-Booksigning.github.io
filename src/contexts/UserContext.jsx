@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect, useReducer } from 'react';
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 export const UserContext = createContext();
 
@@ -36,7 +38,8 @@ export const UserContextProvider = ({children}) => {
 
   useEffect(()=>{
     const fetchUsers = async() => {
-        const response = await fetch('/api/user')
+        const response = await axios.get('https://booksigning.onrender.com/api/user')
+        
         const json = await response.json()
 
         if (response.ok) {

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 export const useSignup = ()=> {
     const[error, setError] = useState(null);
@@ -10,7 +12,7 @@ export const useSignup = ()=> {
         setError(null)
         setSuccess(null)
 
-        const response = await fetch('/api/user/signup', {
+        const response = await axios.post('https://booksigning.onrender.com/api/user/signup', {
             method:'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({name, last_name, email, pin, class_of, img, signature})

@@ -8,6 +8,8 @@ import { motion } from 'framer-motion';
 import { IconContext } from "react-icons";
 import { IoIosLogOut } from 'react-icons/io';
 import './Dashboard.css';
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function Dashboard() {
   const {user, usersArr} = useUserContext();
@@ -24,7 +26,7 @@ function Dashboard() {
 
       const ids = []; 
           
-      const response = await fetch('/api/signatures/sent', {
+      const response = await axios.get('https://booksigning.onrender.com/api/signatures/sent', {
           method: 'GET',
           headers: {
               'Authorization': `Bearer ${user.token}`

@@ -9,6 +9,8 @@ import './Messages.css';
 import { MdDone } from 'react-icons/md';
 import { IconContext } from "react-icons";
 import { Navigate } from "react-router-dom";
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function Messages() {
   const {dispatch, signing, signatures} = useSignatureContext();
@@ -21,7 +23,7 @@ function Messages() {
         
         const thisPal= [];
 
-        const response = await fetch('/api/signatures/sent', {
+        const response = await axios.get('https://booksigning.onrender.com/api/signatures/sent', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${user.token}`

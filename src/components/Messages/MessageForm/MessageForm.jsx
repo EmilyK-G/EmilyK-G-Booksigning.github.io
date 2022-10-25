@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSignatureContext } from "../../../Hooks/useSignatureContextHook";
 import { useUserContext } from '../../../Hooks/useUserContextHook';
 import Alert from 'react-bootstrap/Alert';
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function MessageForm() {
 
@@ -30,7 +32,7 @@ function MessageForm() {
         sender_signature: user.signature
       }
   
-      const response = await fetch('/api/signatures', {
+      const response = await axios.post('https://booksigning.onrender.com/api/signatures', {
         method: 'POST',
         body: JSON.stringify(mssg),
         headers: {
