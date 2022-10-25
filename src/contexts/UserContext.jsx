@@ -45,7 +45,7 @@ export const UserContextProvider = ({children}) => {
         if (response.ok) {
             setUsersArr(data)
         }
-        console.log('here is your debug code...'+ data)
+        console.log('here is your debug code...'+ response)
     }
 
     fetchUsers()
