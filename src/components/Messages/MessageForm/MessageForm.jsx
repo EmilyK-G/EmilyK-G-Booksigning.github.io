@@ -40,19 +40,17 @@ function MessageForm() {
           'Authorization': `Bearer ${user.token}`
         }
       })
-      
-      const json = await response.json()
   
       if(!response.ok){
-        setError(json.error)
-        setEmptyFields(json.emptyFields)
+        setError(response.data.error)
+        setEmptyFields(response.data.emptyFields)
       }
       if (response.ok) {
         setMyMessage('');
         setError(null);
         setEmptyFields([]);
-        console.log('new message sent!', json);
-        dispatch({type: 'CREATE_SIGNATURE', payload: json});
+        console.log('new message sent!', response.data);
+        dispatch({type: 'CREATE_SIGNATURE', payload: response.data});
       }
     }
   return (

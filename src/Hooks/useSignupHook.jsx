@@ -17,14 +17,13 @@ export const useSignup = ()=> {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({name, last_name, email, pin, class_of, img, signature})
         })
-        const json = await response.json()
 
         if (!response.ok){
             setIsLoading(false)
-            setError(json.error)
+            setError(response.data.error)
         }
         if (response.ok){
-            setSuccess(json.success)
+            setSuccess(response.data.success)
             setIsLoading(false)
         }
         return success

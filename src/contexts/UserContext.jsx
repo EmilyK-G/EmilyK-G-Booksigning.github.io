@@ -39,16 +39,14 @@ export const UserContextProvider = ({children}) => {
   useEffect(()=>{
     const fetchUsers = async() => {
         const response = await axios.get('https://booksigning.onrender.com/api/user')
-        
-        const json = await response.json()
 
         if (response.ok) {
-            setUsersArr(json)
+            setUsersArr(response.data)
         }
+        console.log('here is your debug code...'+ response.data)
     }
 
     fetchUsers()
-    
   }, [])
 
   console.log('UserContext state: ', state)

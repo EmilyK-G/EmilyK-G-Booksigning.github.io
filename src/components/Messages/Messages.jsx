@@ -30,10 +30,8 @@ function Messages() {
             }
         })
     
-        const json = await response.json();
-
         if (response.ok) {
-            json.forEach((mes)=>{
+                response.data.forEach((mes)=>{
                 mes.recipient_id === signing._id && thisPal.push(mes)
             })
         }

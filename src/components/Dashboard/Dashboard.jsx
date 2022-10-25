@@ -33,10 +33,8 @@ function Dashboard() {
           }
       })
   
-      const json = await response.json();
-  
       if (response.ok) {      
-        json.forEach(mes=>{
+        response.data.forEach(mes=>{
           ids.push(mes.recipient_id)
         })
       }

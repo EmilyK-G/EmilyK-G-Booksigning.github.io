@@ -23,11 +23,9 @@ function MyBook() {
                   'Authorization': `Bearer ${user.token}`
               }
           })
-          const json = await response.json()
 
           if (response.ok) {
-              myMesDispatch({type: 'SET_MESSAGES', payload: json})
-              console.log(json)
+              myMesDispatch({type: 'SET_MESSAGES', payload: response.data})
           }
       }
 

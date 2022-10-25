@@ -18,20 +18,18 @@ export const useLogin = ()=>{
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, pin})
         })
-        const json = await response.json()
 
         if(!response.ok){
             setIsLoading(false)
-            setError(json.error)
+            setError(response.data.error)
         }
 
         if(response.ok){
-            localStorage.setItem('user', JSON.stringify(json))
+            localStorage.setItem('user', JSON.stringify(response.data))
 
-            dispatch({type: 'LOGIN', payload: json})
+            dispatch({type: 'LOGIN', payload: response.data})
 
             setIsLoading(false)
-            console.log(json)
         }
     }
 
